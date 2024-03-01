@@ -5,7 +5,7 @@ pub fn build(b: *std.Build) !void {
 	const optimize = b.standardOptimizeOption(.{});
 
 	_ = b.addModule("calc", .{
-		.source_file = .{ .path = "calc.zig" },
+		.root_source_file = .{ .path = "calc.zig" },
 	});
 
 	const tests = b.addTest(.{
