@@ -5,13 +5,13 @@ pub fn build(b: *std.Build) !void {
 	const optimize = b.standardOptimizeOption(.{});
 
 	_ = b.addModule("calc", .{
-		.root_source_file = .{ .path = "calc.zig" },
+		.root_source_file = b.path("calc.zig"),
 	});
 
 	const tests = b.addTest(.{
 		.target = target,
 		.optimize = optimize,
-		.root_source_file = .{ .path = "calc.zig" },
+		.root_source_file = b.path("calc.zig"),
 	});
 
 	const test_cmd = b.addRunArtifact(tests);
